@@ -14,7 +14,60 @@ public class OneOfEachStats {
 		int seed = Integer.parseInt(args[1]);
 		// Initailizes a random numbers generator with the given seed value
         Random generator = new Random(seed);  
-		
+		double average = 0;
+		int twoChildren = 0;
+		int threeChildren = 0;
+		int fourOrMoreChildren = 0;
+		int sumOfAllChildren = 0;
+		String mostCommon = "The most common number of children is ";
+		for (int i = 0; i < T; i++) {
+			double rnd = (int)(generator.nextDouble()*2+1);
+			boolean girl = false;
+			boolean boy = false;
+			int count = 0;
+			while (!girl || !boy) {
+				count++;
+				if (rnd==1){
+					girl = true;
+				}
+				else{
+					boy = true;
+				}
+				rnd = (int)((Math.random()) *2+1);
+			}
+			if (count==2){
+				twoChildren++;
+			}
+			else if(count==3){
+				threeChildren++;
+			}
+			else{
+				fourOrMoreChildren++;
+			}
+			sumOfAllChildren += count;
+		}
+
+	
+		average = sumOfAllChildren/(double)T;
+		System.out.println("Average: " + average + " children to get at least one of each gender.");
+		System.out.println("Number of families with 2 children: " + twoChildren);
+		System.out.println("Number of families with 3 children: " + threeChildren);
+		System.out.println("Number of families with 4 or more children: " + fourOrMoreChildren);
+
+		if (twoChildren>threeChildren) {
+			if (twoChildren>fourOrMoreChildren) {
+				mostCommon += "2";
+			}
+		}
+		else if (threeChildren>fourOrMoreChildren) {
+			mostCommon += "3";
+		}
+		else{
+			mostCommon += "4";
+		}
+		System.out.println(mostCommon);
+
+	}
 		//// In the previous version of this program, you used a statement like:
 		//// double rnd = Math.random();
 		//// Where "rnd" is the variable that stores the generated random value.
@@ -24,6 +77,6 @@ public class OneOfEachStats {
 		//// just like you had in the previous version, except that the 
 		//// randomization will be based on the given seed.
 		//// This is the only change that you have to do in the program.
-		    
-	}
 }
+		    
+	
