@@ -66,7 +66,7 @@ public class OneOfEachStats {
 		else{
 			mostCommon += "4";
 		}
-		System.out.println(mostCommon);
+		System.out.println(mostCommon + ".");
 
 	}
 		//// In the previous version of this program, you used a statement like:
