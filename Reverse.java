@@ -7,6 +7,9 @@ public class Reverse {
 		String word = args[0];
 		String reversedString="";
 		char middleLetter=word.charAt(word.length()/2-1);
+		if (word.length()%2==1){
+			middleLetter=word.charAt(word.length()/2);
+		}
 		for (int i = word.length()-1; i >= 0; i--) {
 			reversedString = reversedString + word.charAt(i);
 		}
