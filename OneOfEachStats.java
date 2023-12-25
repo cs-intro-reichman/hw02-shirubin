@@ -19,13 +19,14 @@ public class OneOfEachStats {
 		int threeChildren = 0;
 		int fourOrMoreChildren = 0;
 		int sumOfAllChildren = 0;
+		int rnd;
 		String mostCommon = "The most common number of children is ";
 		for (int i = 0; i < T; i++) {
-			double rnd = (int)(generator.nextDouble()*2+1);
 			boolean girl = false;
 			boolean boy = false;
 			int count = 0;
 			while (!girl || !boy) {
+				rnd = (int)(generator.nextDouble()*2+1);
 				count++;
 				if (rnd==1){
 					girl = true;
@@ -33,7 +34,7 @@ public class OneOfEachStats {
 				else{
 					boy = true;
 				}
-				rnd = (int)((Math.random()) *2+1);
+				
 			}
 			if (count==2){
 				twoChildren++;
